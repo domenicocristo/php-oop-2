@@ -1,4 +1,7 @@
 <?php
+
+use Dipendente as GlobalDipendente;
+
 class Persona {
     private $nome;
     private $cognome;
@@ -30,7 +33,7 @@ class Persona {
         return $this -> dataNascita;
     }
 
-    public function gsetDataNascita($dataNascita) {
+    public function setDataNascita($dataNascita) {
         $this -> x = $dataNascita;
     }
 
@@ -47,15 +50,17 @@ $P1 = new Persona("Antonio", "D'Angelo");
 $P2 = new Persona("Nico", "Bianco");
 $P3 = new Persona("Rocco", "Serra");
 
-$P1 -> dataNascita = "01/01/2000";
-$P2 -> dataNascita = "02/02/2000";
-$P1 -> dataNascita = "03/03/2000";
+$P1 -> setDataNascita("01/01/2000");
+$P2 -> setDataNascita("02/02/2000");
+$P1 -> setDataNascita("03/03/2000");
 
 echo $P1 . "<br>";
 echo $P2 . "<br>";
 echo $P3 . "<br>";
 
-class Dipendente {
+echo "<br>------------------------------------------------------<br><br>";
+
+class Dipendente extends Persona {
     private $stipendio;
     private $dataAssunzione;
 
@@ -80,4 +85,8 @@ class Dipendente {
         return $this -> printFullDipendente();
     }
 }
+
+echo $P1 . "<br>";
+echo $P2 . "<br>";
+echo $P3 . "<br>";
 ?>
